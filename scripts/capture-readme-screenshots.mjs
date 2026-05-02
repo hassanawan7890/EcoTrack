@@ -12,15 +12,28 @@ const WINDOW = { width: 1600, height: 1000 }
 
 const captures = [
   {
-    name: 'login',
-    path: '/login',
-    marker: 'Quick access demo accounts',
-  },
-  {
     name: 'admin-dashboard',
     path: '/admin/dashboard',
     marker: 'Admin Dashboard',
     account: { email: 'admin@ecotrack.com', password: 'demo1234' },
+  },
+  {
+    name: 'zones-map',
+    path: '/admin/zones',
+    marker: 'Zone Management',
+    account: { email: 'admin@ecotrack.com', password: 'demo1234' },
+    postLoginPath: '/admin/zones',
+    readyExpression: "document.querySelectorAll('.leaflet-container .leaflet-tile-loaded').length > 2",
+    postWaitMs: 2200,
+  },
+  {
+    name: 'routes-map',
+    path: '/admin/routes',
+    marker: 'Route Management',
+    account: { email: 'admin@ecotrack.com', password: 'demo1234' },
+    postLoginPath: '/admin/routes',
+    readyExpression: "document.querySelectorAll('.leaflet-container .leaflet-tile-loaded').length > 2",
+    postWaitMs: 2200,
   },
   {
     name: 'citizen-dashboard',
@@ -74,16 +87,25 @@ async function main() {
         if (capture.account) {
           await login(client, capture.account)
           await waitFor(
-            () => evaluate(client, 'location.pathname').then((value) => value === capture.path),
-            `navigation to ${capture.path}`,
+            () => evaluate(client, 'location.pathname').then((value) => value !== '/login'),
+            'post-login navigation',
           )
+          if (capture.postLoginPath) {
+            await navigate(client, `${BASE_URL}${capture.postLoginPath}`)
+          }
         }
 
         await waitFor(
           () => evaluate(client, `document.body.innerText.includes(${JSON.stringify(capture.marker)})`),
           `page marker "${capture.marker}"`,
         )
-        await sleep(1200)
+        if (capture.readyExpression) {
+          await waitFor(
+            () => evaluate(client, capture.readyExpression),
+            `page readiness for ${capture.name}`,
+          )
+        }
+        await sleep(capture.postWaitMs ?? 1200)
 
         const outputPath = path.join(SCREENSHOT_DIR, `${capture.name}.png`)
         await captureScreenshot(client, outputPath)

@@ -1,8 +1,6 @@
 <p align="center">
-  <img src="./public/logo.svg" alt="EcoTrack logo" width="180" />
+  <img src="./images/logo-nobackground.png" alt="EcoTrack" width="360" />
 </p>
-
-<h1 align="center">EcoTrack</h1>
 
 <p align="center">
   A full-stack municipal waste and recycling operations platform built with Next.js, Supabase, and PostgreSQL.
@@ -38,32 +36,30 @@ The app is built as a real Next.js application with protected role-based dashboa
 
 ## Screenshots
 
-Screenshots below were captured from the deployed demo.
-
 <table>
   <tr>
-    <td><img src="./docs/screenshots/login.png" alt="EcoTrack login page" /></td>
     <td><img src="./docs/screenshots/admin-dashboard.png" alt="EcoTrack admin dashboard" /></td>
-  </tr>
-  <tr>
-    <td align="center"><strong>Public Demo Login</strong></td>
-    <td align="center"><strong>Admin Dashboard</strong></td>
-  </tr>
-  <tr>
     <td><img src="./docs/screenshots/citizen-dashboard.png" alt="EcoTrack citizen dashboard" /></td>
-    <td><img src="./docs/screenshots/crew-dashboard.png" alt="EcoTrack crew dashboard" /></td>
   </tr>
   <tr>
+    <td align="center"><strong>Admin Dashboard</strong></td>
     <td align="center"><strong>Citizen Dashboard</strong></td>
-    <td align="center"><strong>Crew Dashboard</strong></td>
   </tr>
   <tr>
+    <td><img src="./docs/screenshots/crew-dashboard.png" alt="EcoTrack crew dashboard" /></td>
     <td><img src="./docs/screenshots/staff-dashboard.png" alt="EcoTrack staff dashboard" /></td>
-    <td></td>
   </tr>
   <tr>
+    <td align="center"><strong>Crew Dashboard</strong></td>
     <td align="center"><strong>Staff Dashboard</strong></td>
-    <td></td>
+  </tr>
+  <tr>
+    <td><img src="./docs/screenshots/zones-map.png" alt="EcoTrack zones map" /></td>
+    <td><img src="./docs/screenshots/routes-map.png" alt="EcoTrack routes map" /></td>
+  </tr>
+  <tr>
+    <td align="center"><strong>Zones Map</strong></td>
+    <td align="center"><strong>Routes Map</strong></td>
   </tr>
 </table>
 
@@ -131,8 +127,8 @@ src/app/api            Server routes and admin actions
 src/components         Shared UI, layout, and map components
 src/lib                Supabase clients, auth helpers, utilities
 supabase/              Canonical schema, migrations, and seed data
-docs/screenshots/      README screenshots
-scripts/               Utility scripts, including screenshot capture
+docs/screenshots/      README image assets
+scripts/               Utility scripts
 ```
 
 ## Getting Started
@@ -285,20 +281,6 @@ GitHub Pages is not suitable for this project in its current form because EcoTra
 - Prefer a modern Supabase secret key for server-only access
 - Rotate keys immediately if they are ever exposed
 - Review Row Level Security policies before going live with production data
-
-## Refreshing README Screenshots
-
-This repo includes a helper script that captures the current demo UI into `docs/screenshots/`:
-
-```bash
-node scripts/capture-readme-screenshots.mjs
-```
-
-By default it targets the public Vercel demo. To capture another deployment, set `ECOTRACK_SCREENSHOT_BASE_URL` first, then run:
-
-```bash
-node scripts/capture-readme-screenshots.mjs
-```
 
 ## Production Checklist
 
