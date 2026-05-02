@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 60" fill="none">
+  <rect width="44" height="44" x="0" y="8" rx="10" fill="#16a34a"/>
+  <path d="M22 14c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-1.5 5v6.086l-3.293-2.793-1.414 1.414L22 29.914l6.207-5.707-1.414-1.414L23.5 25.086V19h-3z" fill="white"/>
+  <text x="54" y="37" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="700" fill="#f4f4f5">Eco<tspan fill="#16a34a">Track</tspan></text>
+</svg>

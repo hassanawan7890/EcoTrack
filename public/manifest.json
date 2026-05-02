@@ -1,0 +1,12 @@
+{
+  "name": "EcoTrack",
+  "short_name": "EcoTrack",
+  "description": "Municipal waste & recycling management",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#09090b",
+  "theme_color": "#16a34a",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}
