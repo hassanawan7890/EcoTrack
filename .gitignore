@@ -43,3 +43,5 @@ yarn-error.log*
 /components/
 *.shtml
 /id_and_pass.txt
+
+.vercel
